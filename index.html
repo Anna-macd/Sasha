@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ты моя валентинка ❤️</title>
     <style>
-        /* Сброс отступов и устанавливаем высоту на всю страницу */
         * {
             margin: 0;
             padding: 0;
@@ -18,36 +17,32 @@
             align-items: center;
             justify-content: center;
             font-family: 'Arial', sans-serif;
-            /* Основной градиент фона - розовые и красные тона */
             background: linear-gradient(145deg, #ffb6c1 0%, #ff69b4 50%, #dc143c 100%);
             position: relative;
             padding: 20px;
         }
 
-        /* Контейнер для полупрозрачных сердечек на фоне */
         .background-hearts {
-            position: fixed; /* Чтобы сердечки были на весь экран и не двигались */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Чтобы были позади основного контента */
-            pointer-events: none; /* Чтобы сердечки не мешали кликать по кнопкам */
+            z-index: 1;
+            pointer-events: none;
             overflow: hidden;
         }
 
-        /* Стили для самих полупрозрачных сердечек */
         .bg-heart {
             position: absolute;
-            font-size: 3rem; /* Размер сердечка */
-            opacity: 0.2; /* Полупрозрачность */
-            color: #fff; /* Белый цвет, но из-за градиента фона будет выглядеть нежно */
+            font-size: 3rem;
+            opacity: 0.2;
+            color: #fff;
             user-select: none;
-            animation: float 10s infinite linear; /* Плавное покачивание */
+            animation: float 10s infinite linear;
             text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
         }
 
-        /* Разное положение и анимация для каждого сердечка */
         .bg-heart:nth-child(1) { top: 10%; left: 5%; font-size: 5rem; animation-duration: 14s; opacity: 0.15; }
         .bg-heart:nth-child(2) { top: 70%; left: 15%; font-size: 4rem; animation-duration: 11s; opacity: 0.2; }
         .bg-heart:nth-child(3) { top: 20%; left: 80%; font-size: 6rem; animation-duration: 16s; opacity: 0.1; }
@@ -59,28 +54,18 @@
         .bg-heart:nth-child(9) { top: 30%; left: 15%; font-size: 6rem; animation-duration: 17s; opacity: 0.1; }
         .bg-heart:nth-child(10) { top: 90%; left: 45%; font-size: 5rem; animation-duration: 12s; opacity: 0.2; }
 
-        /* Анимация плавания вверх-вниз и по горизонтали */
         @keyframes float {
-            0% {
-                transform: translateY(0px) translateX(0px) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-30px) translateX(20px) rotate(5deg);
-            }
-            66% {
-                transform: translateY(20px) translateX(-20px) rotate(-5deg);
-            }
-            100% {
-                transform: translateY(0px) translateX(0px) rotate(0deg);
-            }
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) translateX(20px) rotate(5deg); }
+            66% { transform: translateY(20px) translateX(-20px) rotate(-5deg); }
+            100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
         }
 
-        /* Карточка с основным контентом (поверх фоновых сердечек) */
         .valentine-card {
             position: relative;
-            z-index: 10; /* Чтобы быть выше фоновых сердечек */
-            background: rgba(255, 240, 245, 0.7); /* Полупрозрачный бело-розовый фон для карточки */
-            backdrop-filter: blur(5px); /* Эффект матового стекла */
+            z-index: 10;
+            background: rgba(255, 240, 245, 0.7);
+            backdrop-filter: blur(5px);
             border-radius: 60px 60px 40px 40px;
             padding: 40px 30px;
             box-shadow: 0 20px 40px rgba(180, 0, 60, 0.4);
@@ -92,39 +77,37 @@
 
         h1 {
             font-size: 2.5rem;
-            color: #a52a2a; /* Коричнево-красный */
+            color: #a52a2a;
             text-shadow: 2px 2px 0 #ffc0cb;
             margin-bottom: 30px;
             font-weight: bold;
         }
 
-        /* Стили для главного сердца (кнопки) */
         .big-heart-button {
             background: none;
             border: none;
-            font-size: 12rem; /* Огромное сердце */
+            font-size: 12rem;
             line-height: 1;
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
             display: block;
             margin: 20px auto;
             filter: drop-shadow(0 10px 15px rgba(200, 0, 0, 0.6));
-            outline: none; /* Убираем обводку при фокусе для красоты */
+            outline: none;
         }
 
         .big-heart-button:hover {
-            transform: scale(1.1); /* Увеличиваем при наведении */
+            transform: scale(1.1);
             filter: drop-shadow(0 15px 20px rgba(220, 20, 60, 0.8));
         }
 
         .big-heart-button:active {
-            transform: scale(0.95); /* Эффект нажатия */
+            transform: scale(0.95);
         }
 
-        /* Текст подсказка под сердцем */
         .hint {
             font-size: 1.4rem;
-            color: #8b0000; /* Темно-красный */
+            color: #8b0000;
             background-color: rgba(255, 182, 193, 0.7);
             padding: 10px 20px;
             border-radius: 50px;
@@ -134,33 +117,22 @@
             border: 2px solid #ff69b4;
         }
 
-        /* Контейнер для всплывающей фотографии (скрыт по умолчанию) */
         .photo-popup {
             margin-top: 40px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.5);
             border-radius: 30px;
-            border: 3px solid #ff1493; /* Глубокий розовый */
-            display: none; /* Изначально фото скрыто */
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Веселая анимация появления */
+            border: 3px solid #ff1493;
+            display: none;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Анимация "выпрыгивания" */
         @keyframes popIn {
-            0% {
-                transform: scale(0.1) rotate(-10deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2) rotate(5deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
+            0% { transform: scale(0.1) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
 
-        /* Стили для самой картинки */
         .photo-popup img {
             max-width: 100%;
             max-height: 400px;
@@ -171,16 +143,14 @@
             margin: 0 auto;
         }
 
-        /* Подпись под фото */
         .photo-caption {
             margin-top: 15px;
             font-size: 1.5rem;
-            color: #b22222; /* Огнеупорный кирпич */
+            color: #b22222;
             font-weight: bold;
             text-shadow: 1px 1px 0 #ffb6c1;
         }
 
-        /* Маленькие сердечки-украшения */
         .decor-heart {
             color: #ff69b4;
             font-size: 2rem;
@@ -193,20 +163,14 @@
             50% { transform: scale(1.2); }
         }
 
-        /* Адаптация для маленьких экранов */
         @media (max-width: 600px) {
-            .big-heart-button {
-                font-size: 10rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
+            .big-heart-button { font-size: 10rem; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Слой с полупрозрачными сердечками на заднем фоне -->
     <div class="background-hearts">
         <div class="bg-heart">❤️</div>
         <div class="bg-heart">❤️</div>
@@ -220,61 +184,42 @@
         <div class="bg-heart">❤️</div>
     </div>
 
-    <!-- Основная открытка -->
     <div class="valentine-card">
         <h1>
             <span class="decor-heart">❤️</span> С Днём всех Влюблённых! <span class="decor-heart">❤️</span>
         </h1>
 
-        <!-- Большое сердце, по которому нужно кликнуть -->
-        <button class="big-heart-button" id="heartButton">
-            ❤️
-        </button>
+        <button class="big-heart-button" id="heartButton">❤️</button>
 
-        <div class="hint" id="hintText">
-            Нажми на сердце ❤️
-        </div>
+        <div class="hint" id="hintText">Нажми на сердце ❤️</div>
 
-        <!-- Блок с фотографией, который появляется после клика -->
         <div class="photo-popup" id="photoPopup">
-            <img src="shasha.jpg" alt="Наше фото" id="valentineImage">
-            <div class="photo-caption">
-                Мой лев 💖
-            </div>
+            <img src="https://raw.githubusercontent.com/Anna-macd/Sasha/main/shasha.jpg" alt="Наше фото" id="valentineImage">
+            <div class="photo-caption">Мой лев 💖</div>
         </div>
     </div>
 
     <script>
-        // Ждем, когда весь HTML загрузится
         document.addEventListener('DOMContentLoaded', function() {
-            // Находим элементы на странице
             const heartButton = document.getElementById('heartButton');
             const photoPopup = document.getElementById('photoPopup');
             const hintText = document.getElementById('hintText');
-            const valentineImage = document.getElementById('valentineImage');
 
-            // Добавляем обработчик события "клик" на большое сердце
             heartButton.addEventListener('click', function() {
-                // Показываем блок с фотографией
                 photoPopup.style.display = 'block';
-
-                // Меняем текст подсказки, чтобы было понятно, что фото уже тут
                 hintText.textContent = 'Это ты❤️';
-
-                // Можно добавить небольшую "изюминку" — например, заставить сердце радостно подпрыгнуть
+                
                 heartButton.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     heartButton.style.transform = 'scale(1)';
                 }, 200);
-
-                // Или если хочешь, чтобы сердце меняло цвет при клике
-                heartButton.style.color = '#ff1493'; // Более яркий розовый
+                
+                heartButton.style.color = '#ff1493';
                 setTimeout(() => {
-                    heartButton.style.color = ''; // Возвращаем как было (стандартный красный)
+                    heartButton.style.color = '';
                 }, 300);
             });
 
-            // Можно добавить эффект при загрузке страницы, чтобы сразу привлечь внимание к сердцу
             heartButton.style.animation = 'pulse 2s infinite';
         });
     </script>
