@@ -237,12 +237,7 @@
 
         <!-- Блок с фотографией, который появляется после клика -->
         <div class="photo-popup" id="photoPopup">
-            <!--
-                ⚠️ ВАЖНО: Замените URL ниже на адрес вашей фотографии!
-                Если фото лежит в той же папке, что и этот файл, можно написать просто "моя_фото.jpg"
-                Например: <img src="valentine_photo.jpg" alt="Наше фото">
-            -->
-            <img src="shasha.jpg" alt="Фотография" id="valentineImage">   
+            <img src="shasha.jpg" alt="Наше фото" id="valentineImage">
             <div class="photo-caption">
                 Мой лев 💖
             </div>
@@ -257,34 +252,6 @@
             const photoPopup = document.getElementById('photoPopup');
             const hintText = document.getElementById('hintText');
             const valentineImage = document.getElementById('valentineImage');
-
-            // --- Важно: Здесь нужно установить ссылку на твою фотографию ---
-            // Если ты забыл(а) сделать это в теге <img>, можно сделать это и через JavaScript.
-            // Раскомментируй следующую строку и вставь ссылку на фото.
-            // valentineImage.src = 'https://example.com/tvoya-foto.jpg'; // <-- ССЫЛКА ЗДЕСЬ
-
-            // Проверка: если ссылка в атрибуте src всё ещё заглушка, покажем предупреждение (но сайт будет работать)
-            if (valentineImage.src.includes('YOUR_IMAGE_URL_HERE')) {
-                console.warn('⚠️ Не забудь заменить ссылку на фотографию в теге <img> в коде HTML!');
-                // Можно временно поставить заглушку, чтобы было наглядно (но лучше убрать это в реальном usage)
-                // Для демонстрации, если не вставить фото, покажем просто розовый квадрат с текстом
-                valentineImage.style.display = 'none'; // Скрываем сломанную картинку
-                // Создадим заглушку, чтобы дизайн не сломался (но лучше заменить на реальное фото!)
-                const parent = photoPopup;
-                const caption = document.querySelector('.photo-caption');
-                const placeholderDiv = document.createElement('div');
-                placeholderDiv.textContent = '📸 ЗДЕСЬ БУДЕТ ТВОЕ ФОТО';
-                placeholderDiv.style.backgroundColor = '#ffb6c1';
-                placeholderDiv.style.padding = '50px 20px';
-                placeholderDiv.style.borderRadius = '30px';
-                placeholderDiv.style.fontSize = '1.5rem';
-                placeholderDiv.style.color = '#8b0000';
-                placeholderDiv.style.fontWeight = 'bold';
-                placeholderDiv.style.border = '3px dashed #ff1493';
-                placeholderDiv.id = 'photoPlaceholder';
-                parent.insertBefore(placeholderDiv, caption);
-                console.log('🖼️ Показываем заглушку, так как фото не указано. Не забудь вставить свою фотку!');
-            }
 
             // Добавляем обработчик события "клик" на большое сердце
             heartButton.addEventListener('click', function() {
@@ -305,9 +272,6 @@
                 setTimeout(() => {
                     heartButton.style.color = ''; // Возвращаем как было (стандартный красный)
                 }, 300);
-
-                // Если была заглушка, а ты потом добавишь фото через JS, можно её обновить
-                // Но для простоты оставим так.
             });
 
             // Можно добавить эффект при загрузке страницы, чтобы сразу привлечь внимание к сердцу
